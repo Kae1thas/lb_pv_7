@@ -2,7 +2,7 @@ import numpy as np
 from mpi4py import MPI
 import time
 import matplotlib.pyplot as plt
-from parallel import parallel
+from parallel import parallel_thomas
 
 def sequential_thomas(a, b, c, d):
     n = len(b)
@@ -48,7 +48,7 @@ def plot_performance(ns, speedup, efficiency, p):
     plt.grid(True)
     
     plt.tight_layout()
-    plt.savefig(f'grahp_p{p}.png')
+    plt.savefig(f'speedup_p{p}.png')
     plt.close()
 
 def main():
@@ -81,7 +81,7 @@ def main():
         # Параллельный алгоритм
         comm.Barrier()
         start_time = time.time()
-        x_par = parallel(a, b, c, d, comm)
+        x_par = parallel_thomas(a, b, c, d, comm)
         par_time = time.time() - start_time
         
         # Ошибка параллельного алгоритма

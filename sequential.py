@@ -1,7 +1,7 @@
 import numpy as np
 
 # Последовательный метод прогонки
-def sequential(a, b, c, d):
+def sequential_thomas(a, b, c, d):
     n = len(b)
     c_prime = np.zeros(n-1)  # Вспомогательный массив для верхней диагонали
     d_prime = np.zeros(n)    # Вспомогательный массив для правой части

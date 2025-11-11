@@ -1,7 +1,7 @@
 import numpy as np
 from mpi4py import MPI
 
-def parallel(a, b, c, d, comm):
+def parallel_thomas(a, b, c, d, comm):
     rank = comm.Get_rank()   # Номер процесса
     size = comm.Get_size()   # Количество процессов
     n = len(b)               # Размер системы
